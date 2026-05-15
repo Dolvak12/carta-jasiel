@@ -1,11 +1,11 @@
-# Love Cards — Para Yasel 💖🌹
+# Love Cards — Para Jasiel 💖🌹
 
-This project is a personalized interactive digital letter for **Yasel**, mixing English and Tagalog (Taglish).
+This project is a personalized interactive digital letter for **Jasiel**, mixing English and Tagalog (Taglish).
 
 ## ✨ Features
 
 ### 1. Full Personalization
-- **Heartfelt Message**: Letter written in Taglish — a mix of English and Tagalog — specifically for Yasel.
+- **Heartfelt Message**: Letter written in Taglish — a mix of English and Tagalog — specifically for Jasiel.
 - **Custom Photo**: Integration of a personal photo (`image_01.jpg`) with smart loading and error handling.
 
 ### 2. Premium Visual Design ("Glassmorphism")

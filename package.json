@@ -1,7 +1,7 @@
 {
   "name": "carta-yasel",
   "version": "1.0.0",
-  "description": "A digital interactive letter for Yasel 🌹 | Taglish love letter",
+  "description": "A digital interactive letter for Jasiel 🌹 | Taglish love letter",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

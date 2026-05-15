@@ -4,11 +4,11 @@
 
 // Configuración optimizada para móvil
 const CONFIG = {
-    toName: "Yasel",
-    toNamePhoto: "Yasel",
+    toName: "Jasiel",
+    toNamePhoto: "Jasiel",
     signature: "Diego",
     letterText:
-        `My Yasel,
+        `My Jasiel,
 
 I know life gets busy sometimes, pero gusto ko lang sabihin sa'yo how much you mean to me.
 
@@ -16,7 +16,7 @@ Mahal na mahal kita, and I don't say it enough. You bring so much joy into my li
 
 Kahit anong mangyari, I'll always be here for you. You're not just my love — you're my best friend, my happy place, my everything.
 
-I made this little surprise para mapangiti ka, kasi your smile is my favorite thing in the world. You deserve all the good things, Yasel.
+I made this little surprise para mapangiti ka, kasi your smile is my favorite thing in the world. You deserve all the good things, Jasiel.
 
 Miss na miss kita palagi. Sending you the biggest hug.
 

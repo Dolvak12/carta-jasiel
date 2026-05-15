@@ -1,0 +1,20 @@
+{
+  "name": "carta-yasel",
+  "version": "1.0.0",
+  "description": "A digital interactive letter for Yasel 🌹 | Taglish love letter",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "love",
+    "card",
+    "interactive"
+  ],
+  "author": "Diego",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

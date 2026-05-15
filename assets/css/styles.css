@@ -1,0 +1,1048 @@
+/* =========================
+   assets/css/style.css
+   ========================= */
+
+/* Estilos Específicos del Intro (Flor SVG) */
+.intro-container {
+  position: fixed;
+  inset: 0;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 1.5s ease;
+}
+
+.intro-container .container {
+  max-width: 300px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#XMLID_226_ {
+  animation: draw 6s forwards ease-in-out;
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 600;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* =========================
+   Estilos Principales (Diseño Dark/Romántico)
+   ========================= */
+:root {
+  --bg1: #12040a;
+  --bg2: #2a0713;
+  --card: #14060b;
+  --text: #fff7fb;
+  --muted: #ffd6e5;
+  --rose1: #b0002a;
+  --rose2: #ff2b5a;
+  --gold: #ffd27a;
+  --shadow: 0 12px 35px rgba(0, 0, 0, .6);
+  --radius: 24px;
+  --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0
+}
+
+html,
+body {
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: var(--text);
+  overflow-x: hidden;
+  background:
+    radial-gradient(800px 600px at 20% 20%, rgba(255, 43, 90, .18), transparent 55%),
+    radial-gradient(600px 500px at 80% 30%, rgba(255, 210, 122, .14), transparent 55%),
+    radial-gradient(600px 550px at 50% 90%, rgba(255, 43, 90, .16), transparent 60%),
+    linear-gradient(165deg, var(--bg1), var(--bg2));
+  line-height: 1.5;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  background-attachment: fixed;
+}
+
+/* Patrón de corazones muy sutil */
+.pattern {
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 12px 12px, rgba(255, 255, 255, .03) 1.5px, transparent 1.6px),
+    radial-gradient(circle at 35px 30px, rgba(255, 255, 255, .025) 1.5px, transparent 1.6px);
+  background-size: 50px 50px;
+  opacity: .45;
+  pointer-events: none;
+  filter: blur(.3px);
+  z-index: 0;
+}
+
+/* Pétalos en segundo plano - detrás de todo */
+.petals {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  width: 15px;
+  /* Un poco más grandes */
+  height: 12px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, .3), transparent 50%),
+    linear-gradient(135deg, #b0002a, #ff2b5a);
+  /* Rojo más intenso y "terciopelo" */
+  border-radius: 15px 0 15px 50px;
+  /* Forma de pétalo de rosa más natural */
+  transform: rotate(25deg);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .2));
+  opacity: 0;
+  animation: fall linear forwards;
+  z-index: 100;
+  /* Asegurar que se vean */
+  pointer-events: none;
+}
+
+.petal:nth-child(2n) {
+  border-radius: 0 15px 50px 15px;
+  /* Variación de forma inversa */
+  background: linear-gradient(135deg, #990025, #e6194b);
+}
+
+.petal:nth-child(3n) {
+  width: 10px;
+  height: 8px;
+  background: linear-gradient(135deg, #ff5c8a, #ff2b5a);
+  /* Pétalo más claro/pequeño */
+}
+
+.petal:nth-child(5n) {
+  width: 18px;
+  height: 14px;
+  filter: blur(1px);
+  /* Efecto de profundidad (desenfoque) */
+}
+
+/* Partículas de corazón mezcladas con pétalos */
+.heart-particle {
+  position: absolute;
+  font-size: 14px;
+  color: #ff2b5a;
+  opacity: 0;
+  animation: fall linear forwards;
+  z-index: 100;
+  pointer-events: none;
+  text-shadow: 0 0 5px rgba(255, 43, 90, 0.4);
+}
+
+.heart-particle.shiny {
+  color: #ffd27a;
+  /* Corazones dorados */
+  text-shadow: 0 0 8px rgba(255, 210, 122, 0.6);
+  font-size: 10px;
+}
+
+@keyframes fall {
+  0% {
+    transform: translate3d(0, -30px, 0) rotate(20deg);
+    opacity: 0
+  }
+
+  8% {
+    opacity: .85
+  }
+
+  100% {
+    transform: translate3d(var(--dx), calc(100vh + 50px), 0) rotate(var(--rot));
+    opacity: 0
+  }
+}
+
+.wrap {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px;
+  z-index: 3;
+  padding-bottom: 30px;
+}
+
+.card {
+  width: 100%;
+  max-width: 580px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .03));
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+  position: relative;
+  transform: translateY(0);
+  transition: var(--transition);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  z-index: 4;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background:
+    radial-gradient(500px 300px at 30% 25%, rgba(255, 43, 90, .24), transparent 60%),
+    radial-gradient(450px 280px at 75% 35%, rgba(255, 210, 122, .18), transparent 60%);
+  pointer-events: none;
+  opacity: .75;
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px 20px 20px;
+  align-items: center;
+  z-index: 5;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 20px 16px 16px;
+    gap: 18px;
+  }
+
+  /* Bouquet styles removed */
+
+  .headline {
+    width: 100%;
+    text-align: center;
+  }
+
+  .tag {
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: clamp(26px, 6vw, 36px);
+    text-align: center;
+  }
+
+  .sub {
+    text-align: center;
+    max-width: 100%;
+    font-size: 16px;
+    padding: 0 8px;
+  }
+
+  /* Animación cariñosa para móvil: respiración suave */
+  @keyframes cardBreath {
+
+    0%,
+    100% {
+      transform: translateY(0) scale(1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    50% {
+      transform: translateY(-2px) scale(1.005);
+      box-shadow: 0 15px 40px rgba(176, 0, 42, 0.25);
+    }
+  }
+
+  .card {
+    padding-bottom: 24px;
+    animation: cardBreath 5s ease-in-out infinite;
+  }
+
+  .actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 16px;
+    font-size: 17px;
+  }
+
+  .note {
+    text-align: center;
+    font-size: 14px;
+    padding: 0 12px;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+    padding: 16px 20px;
+  }
+
+  .svgWrap {
+    width: min(270px, 90vw);
+    transform: translateY(0);
+  }
+
+  .photo-container {
+    width: 140px;
+    height: 140px;
+  }
+
+  .play-section {
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 390px) {
+  .content {
+    padding: 16px 12px 12px;
+  }
+
+  h1 {
+    font-size: clamp(24px, 6.5vw, 32px);
+  }
+
+  .sub {
+    font-size: 15px;
+  }
+
+  .btn {
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  .svgWrap {
+    width: min(240px, 92vw);
+  }
+
+  /* Bouquet styles removed */
+
+  .photo-container {
+    width: 140px;
+    /* Un poco más grande para lucir mejor */
+    height: 140px;
+    padding: 4px;
+    /* Un poco menos de padding en móvil */
+    margin-bottom: 8px;
+  }
+
+  .play-section {
+    width: 90%;
+  }
+}
+
+/* Sección de foto */
+.photo-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.photo-container {
+  width: 170px;
+  height: 170px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border-radius: 50%;
+  padding: 6px;
+  /* Espacio para el borde brillante */
+  position: relative;
+  /* Borde gradiente animado */
+  box-shadow:
+    0 0 0 1px rgba(255, 43, 90, 0.3),
+    /* Línea sutil */
+    0 10px 30px rgba(255, 43, 90, 0.4),
+    /* Resplandor principal */
+    inset 0 0 20px rgba(0, 0, 0, 0.5);
+  /* Profundidad interna */
+  animation: photoFloat 6s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  margin: 0 auto;
+}
+
+/* Anillo decorativo giratorio */
+.photo-container::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(45deg, transparent, #ff2b5a, #ffd27a, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: spinRing 4s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes spinRing {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes photoFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  /* Marco blanco limpio */
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 2;
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff2b5a, #b0002a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  color: rgba(255, 255, 255, 0.9);
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 2;
+  box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+  /* Animación de latido suave */
+  animation: heartbeatPlaceholder 2s ease-in-out infinite;
+}
+
+@keyframes pulse-heart {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(255, 43, 90, 0.6);
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+.photo-label {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--gold);
+  text-shadow: 0 0 10px rgba(255, 210, 122, .3);
+  margin-top: 4px;
+  letter-spacing: 1px;
+}
+
+.headline {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-top: -8px;
+}
+
+.tag {
+  width: max-content;
+  padding: 7px 14px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, .16);
+  background: rgba(0, 0, 0, .22);
+  color: var(--muted);
+  letter-spacing: .4px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .18);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(30px, 5vw, 42px);
+  line-height: 1.1;
+  text-shadow: 0 6px 22px rgba(0, 0, 0, .4);
+  position: relative;
+  display: block;
+  text-align: center;
+  padding: 0 8px;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+
+  14% {
+    transform: scale(1.06);
+  }
+
+  28% {
+    transform: scale(1);
+  }
+
+  42% {
+    transform: scale(1.06);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+}
+
+h1 .spark {
+  animation: heartbeat 2.8s ease-in-out infinite;
+  display: inline-block;
+}
+
+.sub {
+  margin: 0;
+  font-size: 17px;
+  color: rgba(255, 247, 251, .88);
+  line-height: 1.55;
+  max-width: 60ch;
+  text-align: center;
+  padding: 0 12px;
+}
+
+.actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.btn {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  padding: 15px 18px;
+  border-radius: 16px;
+  font-weight: 650;
+  letter-spacing: .3px;
+  transition: var(--transition);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .38);
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 17px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 1;
+}
+
+.btn:active::after {
+  opacity: 1;
+}
+
+.btn:active {
+  transform: translateY(2px) scale(0.97);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .38);
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, var(--rose1), var(--rose2));
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(255, 43, 90, 0.5);
+  /* Sombra más intensa */
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Efecto de brillo que pasa */
+.btn.primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.btn.primary:hover {
+  box-shadow: 0 10px 30px rgba(255, 43, 90, 0.7);
+  transform: translateY(-2px);
+}
+
+.btn.primary:hover::before {
+  left: 100%;
+  transition: 0.7s ease-in-out;
+}
+
+.btn.primary:active {
+  filter: brightness(0.95);
+  box-shadow: 0 5px 16px rgba(255, 43, 90, 0.55);
+  transform: translateY(1px);
+}
+
+.btn.ghost {
+  background: rgba(0, 0, 0, .24);
+  border: 1px solid rgba(255, 255, 255, .14);
+  color: var(--text);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .28);
+}
+
+.btn.ghost:active {
+  background: rgba(0, 0, 0, .32);
+}
+
+/* Sección de música con botón de play prominente */
+.play-section {
+  width: 100%;
+  max-width: 400px;
+  background: rgba(0, 0, 0, .22);
+  border: 1px solid rgba(255, 210, 122, .25);
+  border-radius: 20px;
+  padding: 16px;
+  text-align: center;
+  margin: 12px 0 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .25);
+  position: relative;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.play-section::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(circle, rgba(255, 210, 122, .15) 0%, transparent 70%);
+  z-index: -1;
+}
+
+.play-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.play-button {
+  background: linear-gradient(135deg, var(--rose1), var(--rose2));
+  border: none;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(176, 0, 42, 0.6), 0 0 25px rgba(255, 43, 90, 0.4);
+  transition: var(--transition);
+  position: relative;
+  z-index: 2;
+  touch-action: manipulation;
+}
+
+.play-button::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, .3), transparent);
+  animation: rotate 3s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.play-button span {
+  font-size: 28px;
+  color: white;
+  margin-left: 4px;
+  position: relative;
+  z-index: 3;
+}
+
+.play-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 4px 15px rgba(176, 0, 42, 0.6);
+}
+
+.play-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 43, 90, 0.6), 0 0 30px rgba(255, 210, 122, 0.3);
+}
+
+.play-hint {
+  font-size: 15px;
+  color: rgba(255, 247, 251, .92);
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.song-title {
+  font-weight: 600;
+  color: var(--gold);
+  font-size: 16px;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Bouquet styles removed */
+
+/* Carta desplegable */
+/* =========================
+   MODAL OVERLAY & LETTER
+   ========================= */
+.letter-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  /* Fondo oscuro detrás del modal */
+  backdrop-filter: blur(8px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: scale(0.95);
+}
+
+.letter-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+  transform: scale(1);
+}
+
+.glass-modal {
+  background-color: #fff;
+  background-image:
+    linear-gradient(#f1f1f1 1px, transparent 1px),
+    linear-gradient(90deg, #f1f1f1 1px, transparent 1px);
+  background-size: 24px 24px;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 400px;
+  /* Un poco más estrecho para móvil */
+  height: auto;
+  max-height: 80vh;
+  /* Menos altura para no cubrir todo */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  border: 4px solid #1a050a;
+}
+
+.letter-scroll-area {
+  overflow-y: auto;
+  padding: 15px 24px 5px;
+  /* Menos padding vertical */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.letterBox {
+  margin: 0;
+  height: 100%;
+}
+
+.close-letter {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background: rgba(0, 0, 0, 0.05);
+  /* Más sutil */
+  color: #333;
+  z-index: 20;
+  border-radius: 50%;
+  border: none;
+  font-size: 14px;
+}
+
+.letterTitle {
+  padding-top: 20px;
+  margin-bottom: 10px;
+  color: #c2185b;
+  font-family: 'Patrick Hand', cursive, sans-serif;
+  font-size: 24px;
+  /* Texto título más pequeño */
+  text-align: center;
+  flex-shrink: 0;
+  text-shadow: none;
+}
+
+.typing {
+  color: #1a1a1a !important;
+  font-family: 'Indie Flower', cursive;
+  font-size: 18px;
+  /* Texto más compacto */
+  line-height: 1.5;
+  /* Menos separación entre líneas */
+  white-space: pre-wrap;
+  padding-bottom: 10px;
+  font-weight: 500;
+}
+
+/* Typing cursor */
+.typing::after {
+  content: '|';
+  color: #b0002a;
+  animation: blink 1s infinite layer;
+}
+
+.letterControls {
+  padding: 0 24px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.skip-typing {
+  background: #e0e0e0;
+  color: #444;
+  border: none;
+  padding: 8px 20px;
+  font-size: 13px;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* SECCION MUSICA COMPACTA */
+.play-section.compact {
+  background: #000;
+  margin: 0;
+  padding: 0;
+  border-top: none;
+  border-radius: 0;
+  display: block;
+  flex-shrink: 0;
+  min-height: auto;
+}
+
+.play-section.compact .play-title,
+.play-section.compact .play-hint,
+.play-section.compact .play-button {
+  display: none;
+  /* Ocultar elementos viejos si quedan */
+}
+
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  padding: 14px 20px 18px;
+  color: rgba(255, 214, 229, .78);
+  font-size: 14px;
+  border-top: 1px solid rgba(255, 255, 255, .08);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.footer div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Decoraciones de esquinas - solo desktop */
+.corner {
+  display: none;
+  position: fixed;
+  width: 180px;
+  opacity: .75;
+  z-index: 0;
+  pointer-events: none;
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, .48));
+}
+
+@media (min-width: 769px) {
+  .corner {
+    display: block;
+  }
+
+  .corner.tl {
+    top: -25px;
+    left: -25px;
+    transform: rotate(-10deg)
+  }
+
+  .corner.br {
+    bottom: -35px;
+    right: -35px;
+    transform: rotate(12deg) scale(1.05)
+  }
+}
+
+.spark {
+  color: var(--gold);
+  text-shadow: 0 0 18px rgba(255, 210, 122, .22);
+  position: relative;
+  display: inline-block;
+}
+
+.spark::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: -4px;
+  width: 7px;
+  height: 7px;
+  background: var(--gold);
+  border-radius: 50%;
+  opacity: 0.85;
+  box-shadow: 0 0 6px var(--gold), 0 0 12px var(--gold);
+  animation: twinkle 2.2s infinite alternate;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.75);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+/* Mejorar renderizado en móvil */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Prevención de rebote en iOS */
+body,
+html {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  position: fixed;
+}
+
+/* Flor decorativa flotante */
+.floating-flower {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  z-index: 10;
+  opacity: 0.85;
+  pointer-events: none;
+  animation: floatFlower 8s ease-in-out infinite;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .3));
+}
+
+@keyframes floatFlower {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
